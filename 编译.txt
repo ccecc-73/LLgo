@@ -1,0 +1,26 @@
+cd ~/LLhdm
+
+# 1. 交叉编译 Windows 64 位（去除调试信息）
+GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o LLhdm.exe
+
+# 2. 查看当前体积
+ls -lh LLhdm.exe
+
+# 3. 使用 UPX 极限压缩（如果已安装）
+upx --best --ultra-brute LLhdm.exe
+
+# 4. 查看压缩后体积
+ls -lh LLhdm.exe
+
+
+git config --global user.name "ccecc-73"
+git config --global user.email "jianhualiu992@gmail.com"
+
+git add .
+git commit -m "更新说明"
+git push
+
+
+
+
+ssh-keygen -t ed25519 -C "jianhualiu992@gmail.com"
